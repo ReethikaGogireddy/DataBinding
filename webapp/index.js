@@ -3,8 +3,9 @@ sap.ui.require(
     "sap/ui/core/Core",
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/mvc/XMLView",
+	  "sap/ui/model/BindingMode"
   ],
-  function (Core, JSONModel, XMLView) {
+  function (Core, JSONModel, XMLView,BindingMode) {
     "use strict";
 
     // Attach an anonymous function to the SAPUI5 'init' event
@@ -17,6 +18,8 @@ sap.ui.require(
         panelHeaderText: "Data Binding Basics"
       });
 
+      oModel.setDefaultBindingMode(BindingMode.OneWay);
+      
       sap.ui.getCore().setModel(oModel); // this is not a good practise
       // in the above line we are simply saying that we are adding a model/table(of data) to application
       // Display a text element whose text is derived
