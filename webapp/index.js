@@ -3,9 +3,9 @@ sap.ui.require(
     "sap/ui/core/Core",
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/mvc/XMLView",
-	  "sap/ui/model/BindingMode"
+    "sap/ui/model/resource/ResourceModel"
   ],
-  function (Core, JSONModel, XMLView,BindingMode) {
+  function (Core, JSONModel, XMLView,ResourceModel) {
     "use strict";
 
     // Attach an anonymous function to the SAPUI5 'init' event
@@ -18,14 +18,15 @@ sap.ui.require(
         panelHeaderText: "Data Binding Basics"
       });
 
-      oModel.setDefaultBindingMode(BindingMode.OneWay);
-      
-      sap.ui.getCore().setModel(oModel); // this is not a good practise
-      // in the above line we are simply saying that we are adding a model/table(of data) to application
-      // Display a text element whose text is derived
-      // from the model object
+      sap.ui.getCore().setModel(oModel); 
 
-      //new Text({ text: "{/greetingText}" }).placeAt("content");
+      var oResourceModel = new ResourceModel({
+        bundleName: "ui5.databinding.i18n.i18n",
+        supportedLocales: ["", "de"],
+        fallbackLocale: ""
+      });
+
+      sap.ui.getCore().setModel(oResourceModel, "i18n");
 
       // Display the XML view called "App"
       new XMLView({
