@@ -1,20 +1,33 @@
 sap.ui.require(
-  ["sap/m/Text", "sap/ui/model/json/JSONModel"],
-  function (Text, JSONModel) {
+  [
+    "sap/ui/core/Core",
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/core/mvc/XMLView",
+  ],
+  function (Core, JSONModel, XMLView) {
     "use strict";
 
     // Attach an anonymous function to the SAPUI5 'init' event
-    sap.ui.getCore().attachInit(function () {
+    Core.ready().then(function () {
       // create a JSON model that contains the name
       var oModel = new JSONModel({
-        greetingText: "Hi,my name is Reethika",
+        firstName: "Reethika",
+        lastName: "Gogireddy",
+        enabled: true,
+        panelHeaderText: "Data Binding Basics"
       });
 
       sap.ui.getCore().setModel(oModel); // this is not a good practise
       // in the above line we are simply saying that we are adding a model/table(of data) to application
-      new Text({ text: "Hi, my name is Reethika Gogireddy" }).placeAt(
-        "content"
-      );
+      // Display a text element whose text is derived
+      // from the model object
+
+      //new Text({ text: "{/greetingText}" }).placeAt("content");
+
+      // Display the XML view called "App"
+      new XMLView({
+        viewName: "ui5.databinding.view.App",
+      }).placeAt("content");
     });
   }
 );
