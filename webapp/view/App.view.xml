@@ -1,4 +1,5 @@
 <mvc:View
+    controllerName="ui5.databinding.controller.App"
 	xmlns="sap.m"
 	xmlns:form="sap.ui.layout.form"
 	xmlns:l="sap.ui.layout"

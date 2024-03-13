@@ -3,7 +3,7 @@ sap.ui.define(
   function (Controller, mobileLibrary) {
     "use strict";
 
-    return Controller.extend("sap.ui.demo.db.controller.App", {
+    return Controller.extend("ui5.databinding.controller.App", {
       formatMail: function (sFirstName, sLastName) {
         var oBundle = this.getView().getModel("i18n").getResourceBundle();
         return mobileLibrary.URLHelper.normalizeEmail(
