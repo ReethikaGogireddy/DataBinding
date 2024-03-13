@@ -16,11 +16,13 @@ sap.ui.require(
         lastName: "Gogireddy",
         enabled: true,
         address: {
-          street: "Dietmar-Hopp-Allee 16",
-          city: "Walldorf",
-          zip: "69190",
-          country: "Germany",
+          street: "street no:2,",
+          city: "Hyderabad,",
+          zip: "500088,",
+          country: "India",
         },
+        salesAmount: 12345.6789,
+        currencyCode: "RS",
       });
 
       sap.ui.getCore().setModel(oModel);
